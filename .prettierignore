@@ -1,0 +1,6 @@
+# Directories ignored by prettier
+.next/*
+public
+node_modules
+.gitignore
+*.json
