@@ -13,7 +13,6 @@ type Props = {
 }
 
 const Home: NextPage<Props> = (props) => {
-	console.log(props.reviews)
 
 	return (
 		<>
