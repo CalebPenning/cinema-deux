@@ -1,7 +1,20 @@
-import type { NextPage } from "next"
+import type { GetStaticProps, NextPage } from "next"
 import Head from "next/head"
+import prisma from "../../lib/prisma"
+import Review, { ReviewProps } from "../common/components/review/review"
 
-const Home: NextPage = () => {
+export const getStaticProps: GetStaticProps = async () => {
+	const reviews = await prisma.review.findMany()
+	return JSON.parse(JSON.stringify({ props: { reviews } }))
+}
+
+type Props = {
+	reviews: Array<ReviewProps>
+}
+
+const Home: NextPage<Props> = (props) => {
+	console.log(props.reviews)
+
 	return (
 		<>
 			<Head>
@@ -11,8 +24,11 @@ const Home: NextPage = () => {
 			</Head>
 			<div className="flex flex-col items-center">
 				<h1 className="text-7xl">Hello World</h1>
-        <h2 className="text-4xl">I'm Caleb Penning, a Software Engineer from the San Francisco Bay Area!</h2>
+        		<h2 className="text-4xl">I'm Caleb Penning, a Software Engineer from the San Francisco Bay Area!</h2>
 			</div>
+			<section>
+				{props.reviews.map(review => <Review key={review.id} review={review} />)}
+			</section>
 		</>
 	)
 }
