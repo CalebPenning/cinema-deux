@@ -10,8 +10,8 @@ export type ReviewProps = {
 
 const Review: React.FC<{ review: ReviewProps }> = ({ review }) => {
     return (
-        <div className="flex flex-col items-center justify-evenly">
-            <h2 className="text-5xl">{review.title}</h2>
+        <div className="flex flex-col max-w-6xl items-center justify-evenly border-black border-4 border rounded-md">
+            <h2 className="text-3xl">{review.title}</h2>
             <small>{`A review `}</small>
         </div>
     )
