@@ -20,6 +20,7 @@ model User {
   following Follow[] @relation("following")
   reviews Review[]
   likes Like[]
+  @@map(name: "user")
 }
 
 model Follow {
@@ -46,7 +47,7 @@ model Review {
   rating Int
   title String
   body String @db.VarChar(500)
-  createdAt DateTime @default(now())
+  createdAt DateTime @default(now()) @map(name: "created_at")
   likes Like[]
 }
 
