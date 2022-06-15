@@ -4,6 +4,7 @@ import Link from "next/link"
 import prisma from "../../lib/prisma"
 import type { Review } from "@prisma/client"
 import ReviewCard from "../common/components/review/reviewCard"
+import { ReviewByIdPageProps } from "../pages/reviews/[id]/index.page"
 
 export const getStaticProps: GetStaticProps = async () => {
 	const reviews = await prisma.review.findMany({
@@ -20,11 +21,10 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 
 type HomePageProps = {
-	reviews: Array<Review>
+	reviews: Array<ReviewByIdPageProps>
 }
 
-const Home: NextPage<HomePageProps> = (props) => {
-	console.log(props)
+const Home: NextPage<HomePageProps> = ({ reviews }: HomePageProps) => {
 	return (
 		<>
 			<Head>
@@ -40,7 +40,7 @@ const Home: NextPage<HomePageProps> = (props) => {
 				</h2>
 			</div>
 			<section className="flex flex-col items-center justify-evenly">
-				{props.reviews.map((review) => (
+				{reviews.map((review) => (
 					<Link key={review.id} href={`/reviews/${review.id}`}>
 						<a>
 							<ReviewCard key={review.id} review={review} />

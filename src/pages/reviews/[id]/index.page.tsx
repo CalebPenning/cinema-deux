@@ -35,12 +35,12 @@ export interface ReviewByIdPageProps extends Review {
  * TODO: Add a review card component
  */
 
-const ReviewById: NextPage<ReviewByIdPageProps> = (props: ReviewByIdPageProps): JSX.Element => {
-	console.log(props)
+const ReviewById: NextPage<ReviewByIdPageProps> = ({ user, movie, ...review}: ReviewByIdPageProps): JSX.Element => {
+	console.log(review)
 	return (
 		<>
 			<Head>
-				<title>{`Review #${props.id} of ${props.movie.title}`}</title>
+				<title>{`Review #${review.id} of ${movie.title}`}</title>
 			</Head>
 		</>
 	)
