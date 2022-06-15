@@ -42,6 +42,9 @@ const ReviewById: NextPage<ReviewByIdPageProps> = ({ user, movie, ...review}: Re
 			<Head>
 				<title>{`Review #${review.id} of ${movie.title}`}</title>
 			</Head>
+            <div className="p-6 h-full flex flex-row items-center justify-evenly border border-black">
+                <ReviewCard key={review.id} review={{user, movie, ...review}} />
+            </div>
 		</>
 	)
 }
