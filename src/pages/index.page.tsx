@@ -15,7 +15,7 @@ export const getStaticProps: GetStaticProps = async () => {
 	})
 	return {
 		props: {
-			reviews: JSON.parse(JSON.stringify(reviews))	
+			reviews: JSON.parse(JSON.stringify(reviews))
 		}
 	}
 }

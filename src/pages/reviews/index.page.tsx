@@ -1,7 +1,5 @@
 const ReviewsIndexPage = () => {
-    return (
-        <></>
-    )
+	return <></>
 }
 
 export default ReviewsIndexPage
