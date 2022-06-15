@@ -9,13 +9,15 @@ generator client {
 
 model User {
   id Int @id @unique @default(autoincrement())
-  username String @unique @db.VarChar(30)
-  firstName String
-  lastName String
-  password String
-  email String @unique
-  bio String @db.VarChar(500)
-  image String
+  username String? @unique @db.VarChar(30)
+  name String?
+  password String?
+  email String? @unique
+  emailVerified DateTime? @map("email_verified")
+  bio String? @db.VarChar(500)
+  image String?
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
   followers Follow[] @relation("follower")
   following Follow[] @relation("following")
   reviews Review[]
@@ -80,7 +82,7 @@ model Movie {
 }
 
 model Review {
-  id Int @id
+  id Int @id @default(autoincrement())
   movie Movie @relation(fields: [movieId], references: [id])
   movieId String
   user User @relation(fields: [userId], references: [id])

@@ -100,19 +100,13 @@ const Header: React.FC = (): JSX.Element => {
 						<Link href="/reviews">
 							<a data-active={isActive("/reviews")}>My Reviews</a>
 						</Link>
-						<button onClick={() => signOut()}>
-              Log out
-            </button>
+						<button onClick={() => signOut()}>Log out</button>
 					</ul>
 				</nav>
 			</header>
 		)
 
-  return (
-    <div>
-      what the fuck
-    </div>
-  )
+	return <div>what the fuck</div>
 }
 
 export default Header

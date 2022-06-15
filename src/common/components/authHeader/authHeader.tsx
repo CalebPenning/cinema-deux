@@ -3,11 +3,11 @@ import { useRouter } from "next/router"
 import { signOut, useSession } from "next-auth/react"
 
 const AuthHeader = () => {
-    const router = useRouter()
-    const isActive: (pathname: string) => boolean = (pathname: string) =>
-        router.pathname === pathname
-    
-    const { data: session, status } = useSession()
+	const router = useRouter()
+	const isActive: (pathname: string) => boolean = (pathname: string) =>
+		router.pathname === pathname
+
+	const { data: session, status } = useSession()
 	let left = (
 		<div className="left">
 			<Link href="/">
@@ -192,20 +192,20 @@ const AuthHeader = () => {
 	}
 
 	return (
-        <nav>
-            {left}
-            {right}
-            <style jsx>
-                {`
-                    nav {
-                        display: flex;
-                        padding: 2rem;
-                        align-items: center;
-                    }
-                `}
-            </style>
-        </nav>
-    )
+		<nav>
+			{left}
+			{right}
+			<style jsx>
+				{`
+					nav {
+						display: flex;
+						padding: 2rem;
+						align-items: center;
+					}
+				`}
+			</style>
+		</nav>
+	)
 }
 
 export default AuthHeader

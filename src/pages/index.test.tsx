@@ -1,21 +1,20 @@
 import { render } from "@testing-library/react"
-import IndexPage from './index.page'
+import IndexPage from "./index.page"
 
 describe("Index page", () => {
 	test("Should say hello world", () => {
-    const { getByText } = render(<IndexPage />)
+		const { getByText } = render(<IndexPage />)
 
-    const helloWorld = getByText('Hello World', { exact: true })
+		const helloWorld = getByText("Hello World", { exact: true })
 
-    expect(helloWorld).toBeInTheDocument()
-  })
+		expect(helloWorld).toBeInTheDocument()
+	})
 
-  test("Should say my name", () => {
-    const { getByText } = render(<IndexPage />)
+	test("Should say my name", () => {
+		const { getByText } = render(<IndexPage />)
 
-    const name = getByText('Caleb Penning', { exact: false })
+		const name = getByText("Caleb Penning", { exact: false })
 
-    expect(name).toBeInTheDocument()
-  })
+		expect(name).toBeInTheDocument()
+	})
 })
-

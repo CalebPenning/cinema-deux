@@ -13,7 +13,6 @@ type Props = {
 }
 
 const Home: NextPage<Props> = (props) => {
-
 	return (
 		<>
 			<Head>
@@ -23,10 +22,15 @@ const Home: NextPage<Props> = (props) => {
 			</Head>
 			<div className="flex flex-col items-center">
 				<h1 className="text-7xl">Hello World</h1>
-        		<h2 className="text-4xl">I'm Caleb Penning, a Software Engineer from the San Francisco Bay Area!</h2>
+				<h2 className="text-4xl">
+					I'm Caleb Penning, a Software Engineer from the San Francisco Bay
+					Area!
+				</h2>
 			</div>
 			<section className="flex flex-col items-center justify-evenly">
-				{props.reviews.map(review => <Review key={review.id} review={review} />)}
+				{props.reviews.map((review) => (
+					<Review key={review.id} review={review} />
+				))}
 			</section>
 		</>
 	)
