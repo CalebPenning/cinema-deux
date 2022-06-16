@@ -33,7 +33,7 @@ const Home: NextPage<HomePageProps> = ({ reviews }: HomePageProps) => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<div className="flex flex-col items-center">
-				<h1 className="text-7xl">Latest Movie Reviews</h1>	
+				<h1 className="text-7xl">Latest Movie Reviews</h1>
 			</div>
 			<section className="flex flex-col items-center justify-evenly">
 				{reviews.map((review) => (

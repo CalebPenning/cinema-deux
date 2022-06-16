@@ -16,10 +16,7 @@ const ReviewCard: React.FC<ReviewCardProps> = (props: ReviewCardProps) => {
 				0,
 				10
 			)}`}</small>
-			<div>
-						{props.review.movie.title}
-
-			</div>
+			<div>{props.review.movie.title}</div>
 		</div>
 	)
 }
