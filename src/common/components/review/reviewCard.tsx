@@ -4,6 +4,7 @@ import { ReviewByIdPageProps } from "../../../pages/reviews/[id]/index.page"
 export type ReviewCardProps = {
 	review: ReviewByIdPageProps
 	key: string | number
+	isInListView: boolean
 }
 
 const ReviewCard: React.FC<ReviewCardProps> = (props: ReviewCardProps) => {
