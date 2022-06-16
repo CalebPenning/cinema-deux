@@ -1,8 +1,15 @@
-/** @type {import('next').NextConfig} */
+/**
+ * @type {import('next/config').NextConfig}
+ */
 const nextConfig = {
 	reactStrictMode: true,
-	eslint: ["."],
-	pageExtensions: ["page.tsx", "api.ts"]
+	eslint: {
+		dirs: ["src", "lib"],
+	},
+	pageExtensions: ["page.tsx", "api.ts"],
+	i18n: {
+		locales: ["en"],
+		defaultLocale: "en"
+	}
 }
-
 module.exports = nextConfig
