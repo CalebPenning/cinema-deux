@@ -4,9 +4,10 @@ import Link from "next/link"
 import prisma from "../../lib/prisma"
 import type { Review } from "@prisma/client"
 import ReviewCard from "../common/components/review/reviewCard"
+import { ReviewByIdPageProps } from "../pages/reviews/[id]/index.page"
 
 export const getStaticProps: GetStaticProps = async () => {
-	const reviews = await prisma.review.findMany({
+	const reviews: Array<Review> = await prisma.review.findMany({
 		include: {
 			movie: true,
 			user: true
@@ -14,17 +15,16 @@ export const getStaticProps: GetStaticProps = async () => {
 	})
 	return {
 		props: {
-			reviews: JSON.parse(JSON.stringify(reviews))	
+			reviews: JSON.parse(JSON.stringify(reviews))
 		}
 	}
 }
 
 type HomePageProps = {
-	reviews: Array<Review>
+	reviews: Array<ReviewByIdPageProps>
 }
 
-const Home: NextPage<HomePageProps> = (props) => {
-	console.log(props)
+const Home: NextPage<HomePageProps> = ({ reviews }: HomePageProps) => {
 	return (
 		<>
 			<Head>
@@ -33,14 +33,10 @@ const Home: NextPage<HomePageProps> = (props) => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<div className="flex flex-col items-center">
-				<h1 className="text-7xl">Hello World</h1>
-				<h2 className="text-4xl">
-					I'm Caleb Penning, a Software Engineer from the San Francisco Bay
-					Area!
-				</h2>
+				<h1 className="text-7xl">Latest Movie Reviews</h1>
 			</div>
 			<section className="flex flex-col items-center justify-evenly">
-				{props.reviews.map((review) => (
+				{reviews.map((review) => (
 					<Link key={review.id} href={`/reviews/${review.id}`}>
 						<a>
 							<ReviewCard key={review.id} review={review} />

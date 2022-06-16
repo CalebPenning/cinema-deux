@@ -7,11 +7,7 @@ import { useState } from "react"
 import type { Review } from "@prisma/client"
 
 const CreateReviewPage: NextPage = (): JSX.Element => {
-    return (
-        <div>
-
-        </div>
-    )
+	return <div></div>
 }
 
 export default CreateReviewPage

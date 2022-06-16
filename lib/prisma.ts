@@ -1,3 +1,4 @@
+/* eslint-env node */
 import { PrismaClient } from "@prisma/client"
 
 let prisma: PrismaClient
