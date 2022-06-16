@@ -11,7 +11,7 @@ const Header: React.FC = (): JSX.Element => {
 
 	if (status === "loading")
 		return (
-			<header className="w-full pb-1 border-b-2">
+			<header className="w-full pb-2 mb-2 border-b-2">
 				<nav>
 					<ul className="flex flex-row items-center justify-around">
 						<Link href="/">
@@ -41,7 +41,7 @@ const Header: React.FC = (): JSX.Element => {
 
 	if (!session)
 		return (
-			<header className="w-full pb-1 border-b-2">
+			<header className="w-full pb-2 mb-2 border-b-2">
 				<nav>
 					<ul className="flex flex-row items-center justify-around">
 						<Link href="/">
@@ -70,7 +70,7 @@ const Header: React.FC = (): JSX.Element => {
 		)
 
 	return (
-		<header className="w-full pb-1 border-b-2 font-lato font-semibold">
+		<header className="w-full pb-2 mb-2 border-b-2 font-lato font-semibold">
 			<nav>
 				<ul className="flex flex-row items-center justify-around">
 					<Link href="/">

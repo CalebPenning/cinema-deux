@@ -1,7 +1,7 @@
 import { GetServerSideProps, GetServerSidePropsResult, NextPage } from "next"
 import Head from "next/head"
-import ReviewCard from "../../../common/components/review/reviewCard"
-import prisma from "../../../../lib/prisma"
+import ReviewCard from "../../src/common/components/review/reviewCard"
+import prisma from "../../lib/prisma"
 import type { Review, User, Movie } from "@prisma/client"
 
 /**

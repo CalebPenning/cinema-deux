@@ -1,4 +1,4 @@
-import { ReviewByIdPageProps } from "../../../pages/reviews/[id]/index.page"
+import { ReviewByIdPageProps } from "../../../../reviews/[id]/index.page"
 import { useState } from "react"
 
 export type ReviewCardProps = {

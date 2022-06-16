@@ -4,7 +4,7 @@ import Link from "next/link"
 import prisma from "../../lib/prisma"
 import type { Review } from "@prisma/client"
 import ReviewCard from "../common/components/review/reviewCard"
-import { ReviewByIdPageProps } from "../pages/reviews/[id]/index.page"
+import { ReviewByIdPageProps } from "../../reviews/[id]/index.page"
 
 export const getStaticProps: GetStaticProps = async () => {
 	const reviews: Array<Review> = await prisma.review.findMany({
