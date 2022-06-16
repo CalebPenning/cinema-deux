@@ -4,7 +4,7 @@
 const nextConfig = {
 	reactStrictMode: true,
 	eslint: {
-		dirs: ["src", "lib"],
+		dirs: ["src", "lib"]
 	},
 	pageExtensions: ["page.tsx", "api.ts"],
 	i18n: {
