@@ -7,7 +7,6 @@ export type ReviewCardProps = {
 }
 
 const ReviewCard: React.FC<ReviewCardProps> = (props: ReviewCardProps) => {
-	console.log(props.review)
 	return (
 		<div className="flex flex-col max-w-6xl items-center justify-evenly border-black border-4 rounded-md">
 			<h2 className="text-3xl">{props.review.title || ""}</h2>
@@ -17,9 +16,10 @@ const ReviewCard: React.FC<ReviewCardProps> = (props: ReviewCardProps) => {
 				0,
 				10
 			)}`}</small>
-			<Link href={`/movies/${props.review.movie.id}`}>
-				<a className="cursor-pointer">{props.review.movie.title || ""}</a>
-			</Link>
+			<div>
+						{props.review.movie.title}
+
+			</div>
 		</div>
 	)
 }

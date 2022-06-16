@@ -1,12 +1,12 @@
 {
   "extends": [
-    "next/core-web-vitals",
-    "eslint:recommended",
-    "plugin:cypress/recommended",
+    "next",
     "prettier"
   ],
   "env": {
-    "jest": true
+    "jest": true,
+    "browser": true,
+    "node": true
   },
   "globals": {
     "JSX": "readonly",

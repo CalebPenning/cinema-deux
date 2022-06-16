@@ -1,6 +1,6 @@
 import { ReactNode } from "react"
 import Header from "../header/header"
-import AuthHeader from "../authHeader/authHeader"
+// import AuthHeader from "../authHeader/authHeader"
 
 type Props = {
 	children?: ReactNode
@@ -8,8 +8,8 @@ type Props = {
 
 const Layout = ({ children }: Props) => (
 	<>
-		{/* <Header /> */}
-		<AuthHeader />
+		<Header />
+		{/* <AuthHeader /> */}
 		{children}
 	</>
 )
