@@ -16,22 +16,22 @@ const Header: React.FC = (): JSX.Element => {
 					<ul className="flex flex-row items-center justify-around">
 						<Link href="/">
 							<a>
-								<li className="text-3xl">Home</li>
+								<li className="text-lg sm:text-2xl">Home</li>
 							</a>
 						</Link>
-						<Link href="/about">
+						<Link href="/featured">
 							<a>
-								<li className="text-3xl">About</li>
+								<li className="text-lg sm:text-2xl">Featured Posts</li>
 							</a>
 						</Link>
-						<Link href="/blog">
+						<Link href="/search">
 							<a>
-								<li className="text-3xl">Blog</li>
+								<li className="text-lg sm:text-2xl">Search</li>
 							</a>
-						</Link>
-						<Link href="/porfolio">
+						</Link>{" "}
+						<Link href="/">
 							<a>
-								<li className="text-3xl">Portfolio</li>
+								<li className="text-md sm:text-lg">Logging in...</li>
 							</a>
 						</Link>
 					</ul>
@@ -46,26 +46,23 @@ const Header: React.FC = (): JSX.Element => {
 					<ul className="flex flex-row items-center justify-around">
 						<Link href="/">
 							<a>
-								<li className="text-3xl">Home</li>
+								<li className="text-lg sm:text-2xl">Home</li>
 							</a>
 						</Link>
-						<Link href="/about">
+						<Link href="/featured">
 							<a>
-								<li className="text-3xl">About</li>
+								<li className="text-lg sm:text-2xl">Featured Posts</li>
 							</a>
 						</Link>
-						<Link href="/blog">
+						<Link href="/search">
 							<a>
-								<li className="text-3xl">Blog</li>
+								<li className="text-lg sm:text-2xl">Search</li>
 							</a>
-						</Link>
-						<Link href="/porfolio">
-							<a>
-								<li className="text-3xl">Portfolio</li>
-							</a>
-						</Link>
+						</Link>{" "}
 						<Link href="/api/auth/signin">
-							<a data-active={isActive("/signup")}>Log In</a>
+							<a data-active={isActive("/signup")}>
+								<li className="text-md sm:text-lg">Log In</li>
+							</a>
 						</Link>
 					</ul>
 				</nav>
@@ -74,33 +71,32 @@ const Header: React.FC = (): JSX.Element => {
 
 	if (session)
 		return (
-			<header className="w-full pb-1 border-b-2">
+			<header className="w-full pb-1 border-b-2 font-lato font-semibold">
 				<nav>
 					<ul className="flex flex-row items-center justify-around">
 						<Link href="/">
 							<a>
-								<li className="text-3xl">Home</li>
+								<li className="text-lg sm:text-2xl">Home</li>
 							</a>
 						</Link>
-						<Link href="/about">
+						<Link href="/featured">
 							<a>
-								<li className="text-3xl">About</li>
+								<li className="text-lg sm:text-2xl">Featured Posts</li>
 							</a>
 						</Link>
-						<Link href="/blog">
+						<Link href="/search">
 							<a>
-								<li className="text-3xl">Blog</li>
+								<li className="text-lg sm:text-2xl">Search</li>
 							</a>
-						</Link>
-						<Link href="/porfolio">
-							<a>
-								<li className="text-3xl">Portfolio</li>
-							</a>
-						</Link>
+						</Link>{" "}
 						<Link href="/reviews">
-							<a data-active={isActive("/reviews")}>My Reviews</a>
+							<a data-active={isActive("/reviews")}>
+								<li className="text-lg sm:text-2xl">My Reviews</li>
+							</a>
 						</Link>
-						<button onClick={() => signOut()}>Log out</button>
+						<button className="text-md sm:text-lg" onClick={() => signOut()}>
+							Log out
+						</button>
 					</ul>
 				</nav>
 			</header>
