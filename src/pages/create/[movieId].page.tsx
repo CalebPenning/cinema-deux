@@ -5,22 +5,15 @@ import prisma from "../../../lib/prisma"
 import { Movie } from "@prisma/client"
 import { useSession } from "next-auth/react"
 
-export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
-	const { movieId } = ctx.query
-	const movie = await prisma.movie.findUnique({
-		where: {
-			id: String(movieId)
-		}
-	})
-	return {
-		props: {
-			movie
-		}
-	}
-}
-
 export type CreateMoviePageProps = {
 	movie: Movie
+}
+
+export type ReviewDraft = {
+	movieId?: string
+	rating?: number
+	body?: string
+	title?: string
 }
 
 const CreateReviewPage: NextPage<CreateMoviePageProps> = ({
@@ -34,22 +27,22 @@ const CreateReviewPage: NextPage<CreateMoviePageProps> = ({
 	const { data: session, status } = useSession()
 	useEffect(() => {
 		if (status === "loading") return
-		if (status === "unauthenticated") push("/login")
+		if (status === "unauthenticated") push("/api/auth/signin")
 		else return
 	}, [session, status])
 
 	if (status === "loading")
 		return (
-			<div className="text-xl font-bold font-lato tracking-widest">
-				Loading...
+			<div className="text-xl flex flex-col items-center justify-center font-bold font-lato tracking-widest h-full">
+				<h2>Loading...</h2>
 			</div>
 		)
 	return (
-		<div className="flex flex-col items-center justify-evenly border-4 rounded-xl pt-4 pb-12 border-black mt-4">
+		<div className="flex flex-col items-center justify-evenly border-4 pt-4 pb-12 border-[#eee]">
 			<h1 className="text-center text-2xl">
 				Create a review for {movie.title}
 			</h1>
-			<form className="flex flex-col mt-4 px-7 pt-3 pb-8 border border-red-500">
+			<form className="flex flex-col mt-4 px-7 pt-3 pb-8 border">
 				<label htmlFor="title">Review Title</label>
 				<input type="text" name="title" id="title" />
 
@@ -64,9 +57,28 @@ const CreateReviewPage: NextPage<CreateMoviePageProps> = ({
 						</option>
 					))}
 				</select>
+				<input
+					className="mt-2 pt-2 pb-2 text-[#000] bg-slate-300"
+					type="submit"
+					value="Submit"
+				/>
 			</form>
 		</div>
 	)
+}
+
+export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
+	const { movieId } = ctx.query
+	const movie = await prisma.movie.findUnique({
+		where: {
+			id: String(movieId)
+		}
+	})
+	return {
+		props: {
+			movie
+		}
+	}
 }
 
 export default CreateReviewPage
