@@ -16,5 +16,11 @@ const options = {
 			clientSecret: process.env.GITHUB_SECRET
 		})
 	],
+	callbacks: {
+		async session({ session, user }: any) {
+			session.user.id = user.id
+			return session
+		}
+	},
 	adapter: PrismaAdapter(prisma)
 }

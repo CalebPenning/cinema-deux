@@ -17,11 +17,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 			return res.status(400).json({ error: e.message })
 		}
 	} else
-		return res
-			.status(400)
-			.json({
-				message: `Method ${req.method} not allowed at endpoint ${req.url}`
-			})
+		return res.status(400).json({
+			message: `Method ${req.method} not allowed at endpoint ${req.url}`
+		})
 }
 
 export default handler
