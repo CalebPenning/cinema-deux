@@ -37,6 +37,8 @@ const CreateReviewPage: NextPage<CreateMoviePageProps> = ({
 				<h2>Loading...</h2>
 			</div>
 		)
+
+	console.log(session)
 	return (
 		<div className="flex flex-col items-center justify-evenly border-4 pt-4 pb-12 border-[#eee]">
 			<h1 className="text-center text-2xl">
