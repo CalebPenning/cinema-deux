@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 import prisma from "../../../lib/prisma"
 import { useSession } from "next-auth/react"
 import { CreateMoviePageProps, ReviewDraft } from "../../common/types/FormTypes"
-import axios from 'axios'
+import axios from "axios"
 
 const CreateReviewPage: NextPage<CreateMoviePageProps> = ({
 	movie
@@ -34,7 +34,9 @@ const CreateReviewPage: NextPage<CreateMoviePageProps> = ({
 		}
 	}
 
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+	const handleSubmit = async (
+		e: React.FormEvent<HTMLFormElement>
+	): Promise<void> => {
 		e.preventDefault()
 		const { title, body, rating } = review
 		if (!title || !body || !rating) setError("All fields are required")
@@ -47,8 +49,7 @@ const CreateReviewPage: NextPage<CreateMoviePageProps> = ({
 			const hasMessage = await axios.post("/api/reviews/create", newReview)
 			if (hasMessage.data.message) {
 				push(`/movies/${movieId}`)
-			}
-			else setError('Something went wrong')
+			} else setError("Something went wrong")
 		}
 	}
 
@@ -66,7 +67,10 @@ const CreateReviewPage: NextPage<CreateMoviePageProps> = ({
 			<h1 className="text-center text-2xl">
 				Create a review for {movie.title}
 			</h1>
-			<form onSubmit={handleSubmit} className="flex flex-col mt-4 px-7 pt-3 pb-8 border">
+			<form
+				onSubmit={handleSubmit}
+				className="flex flex-col mt-4 px-7 pt-3 pb-8 border"
+			>
 				<label htmlFor="title">Review Title</label>
 				<input
 					className="form-input rounded-sm"

@@ -8,6 +8,6 @@ export type ReviewDraft = {
 	movieId?: string
 	rating?: number
 	body?: string
-	title?: string,
+	title?: string
 	userId?: string
 }
