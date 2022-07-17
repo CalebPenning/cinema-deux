@@ -13,7 +13,7 @@ const ReviewCard: React.FC<ReviewCardProps> = (props: ReviewCardProps) => {
 	const [showReviewBody, setShowReviewBody] = useState<boolean>(false)
 
 	const toggleReviewBody = () => {
-		setShowReviewBody(state => !state)
+		setShowReviewBody((state) => !state)
 	}
 	return (
 		<div className="flex flex-col min-w-[40%] lg:max-w-screen-lg items-center justify-evenly border-black border-4 rounded-md">
